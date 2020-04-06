@@ -1,0 +1,16 @@
+# Python
+*.pyc
+__pycache__
+
+# Django
+*.sqlite3
+
+# SOs
+.DS_Store
+
+# IDEs
+.idea
+
+# .env
+.development
+.production
