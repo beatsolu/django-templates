@@ -39,6 +39,9 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+
+        # Local apps
+        'project_name.apps.accounts.apps.AccountsConfig'
     ]
 
     MIDDLEWARE = [
@@ -111,6 +114,8 @@ class Base(Configuration):
     # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
     STATIC_URL = '/static/'
+
+    AUTH_USER_MODEL = 'accounts.User'
 
 
 class Test(Base):
