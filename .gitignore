@@ -11,6 +11,11 @@ __pycache__
 # IDEs
 .idea
 
+# Coverage
+.pytest_cache
+htmlcov
+.coverage
+
 # .env
 .development
 .production

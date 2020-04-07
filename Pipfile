@@ -7,6 +7,8 @@ verify_ssl = true
 isort = {extras = ["pipfile"],version = "*"}
 autopep8 = "*"
 flake8 = "*"
+pytest-django = "*"
+pytest-cov = "*"
 
 [packages]
 django = "==2.2.12"

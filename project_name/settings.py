@@ -119,6 +119,7 @@ class Base(Configuration):
 
 
 class Test(Base):
+    SECRET_KEY = 'secret_test'
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
