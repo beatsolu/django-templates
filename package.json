@@ -1,0 +1,27 @@
+{
+  "name": "project_name",
+  "version": "0.1.0",
+  "description": "Instructions for setting up the project.",
+  "scripts": {
+    "release": "standard-version -a -n"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "husky": "^4.2.3",
+    "standard-version": "^7.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "make pre-commit",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "private": true
+}

@@ -1,0 +1,11 @@
+.venv
+.editorconfig
+.env.example
+.gitignore
+.git
+Dockerfile
+LICENSE
+Makefile
+README.md
+setup.cfg
+node_modules

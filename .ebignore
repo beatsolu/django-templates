@@ -17,7 +17,6 @@ htmlcov
 .coverage
 
 # .env
-.development
 .production
 
 # Virtualenv

@@ -16,8 +16,11 @@ from configurations import Configuration, values
 
 
 class Base(Configuration):
-    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    # Build paths inside the root project like this: os.path.join(BASE_DIR, ...)
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
+    PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,7 +29,7 @@ class Base(Configuration):
     SECRET_KEY = values.SecretValue()
 
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = values.BooleanValue(True)
+    DEBUG = values.BooleanValue(False)
 
     ALLOWED_HOSTS = values.ListValue(['*'])
 
@@ -40,12 +43,16 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
 
+        # Third apps
+        'rest_framework',
+
         # Local apps
         'project_name.apps.accounts.apps.AccountsConfig'
     ]
 
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,7 +66,7 @@ class Base(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [],
+            'DIRS': [os.path.join(PROJECT_DIR, 'templates')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -115,6 +122,13 @@ class Base(Configuration):
 
     STATIC_URL = '/static/'
 
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    # See https://docs.djangoproject.com/en/2.2/topics/email/#console-backend
+    EMAIL = values.EmailURLValue('console://')
+
     AUTH_USER_MODEL = 'accounts.User'
 
 
@@ -130,6 +144,13 @@ class Test(Base):
 
 class Development(Base):
     DOTENV = os.path.join(Base.BASE_DIR, '.development')
+
+    CORS_ORIGIN_ALLOW_ALL = True
+
+    # See https://docs.djangoproject.com/en/2.2/topics/cache/#dummy-caching-for-development
+    CACHES = values.CacheURLValue('dummy://')
+
+    Base.INSTALLED_APPS.insert(0, 'whitenoise.runserver_nostatic')
 
 
 class Production(Base):
