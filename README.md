@@ -1,4 +1,4 @@
-# project_name
+# {{project_name | title}}
 
 Instructions for setting up the project.
 
@@ -10,7 +10,7 @@ Instructions for setting up the project.
 Clone the project in your development environment
 
 ```shell script
-git clone <CHANGE_FOR_REPO_URL>/project_name.git
+git clone <CHANGE_FOR_REPO_URL>/{{project_name}}.git
 ```
 
 Enter the project folder and download and install the dependencies

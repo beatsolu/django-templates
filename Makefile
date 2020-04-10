@@ -1,5 +1,5 @@
 # Directories
-BASE_DIR := project_name
+BASE_DIR := {{project_name}}
 APPS_DIR := $(BASE_DIR)/apps/
 
 # Color
@@ -103,7 +103,7 @@ pre-commit:
 .PHONY: manage
 manage: ARGS = 'help'
 manage:
-	@$(RUN) python manage.py $(ARGS) --settings=project_name.settings --configuration=Development
+	@$(RUN) python manage.py $(ARGS) --settings={{project_name}}.settings --configuration=Development
 
 .PHONY: startapp
 startapp:

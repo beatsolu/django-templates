@@ -1,7 +1,7 @@
-"""project_name URL Configuration
+"""{{project_name}} URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+    https://docs.djangoproject.com/en/{{docs_version}}/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -49,8 +49,8 @@ if settings.DEBUG:
             extra_context={'schema_url': 'open-api-schema'}
         ), name='docs'),
         path('schema/', get_schema_view(
-            title="project_name API",
-            description="Reference documentation for the project_name API.",
+            title="{{project_name | title}} API",
+            description="Reference documentation for the {{project_name | title}} API.",
             version=__version__,
             patterns=api_patterns,
         ), name='open-api-schema'),
