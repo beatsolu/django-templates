@@ -18,8 +18,10 @@ After installing django you have available the `django-admin` utility that you u
     --extension py,yml,json,md,example,cfg \  
     --name Dockerfile,Makefile,Procfile \  
     myproject 
-
+    
+Follow the instructions in the README of the generated project.
 > Note: The `<VERSION>` in the url is the name of the branch of the installed django version. e.g. `v2.2` .
+
 
 
 ### Useful commands
