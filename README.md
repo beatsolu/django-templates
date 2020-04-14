@@ -13,11 +13,7 @@ Create a virtualenv and install django with the desired version.
   
 After installing django you have available the `django-admin` utility that you use to start your project based on the template.  
 
-    django-admin startproject -v2 \
-    --template https://github.com/beatsolu/django-templates/archive/<VERSAO>.zip \  
-    --extension py,yml,json,md,example,cfg \  
-    --name Dockerfile,Makefile,Procfile \  
-    myproject 
+    django-admin startproject -v2 --template https://github.com/beatsolu/django-templates/archive/<VERSAO>.zip --extension py,yml,json,md,example,cfg --name Dockerfile,Makefile,Procfile  myproject 
     
 Follow the instructions in the README of the generated project.
 > Note: The `<VERSION>` in the url is the name of the branch of the installed django version. e.g. `v2.2` .
