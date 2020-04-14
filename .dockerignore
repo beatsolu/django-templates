@@ -1,11 +1,14 @@
 .venv
 .editorconfig
 .env.example
-.gitignore
-.git
 Dockerfile
 LICENSE
 Makefile
 README.md
 setup.cfg
 node_modules
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore
