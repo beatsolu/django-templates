@@ -55,7 +55,7 @@ setup:
 	@echo "$(CYAN) ✔ Creating a copy of the .env.example to .development ..."
 	@cp .env.example .development
 	@echo "$(CYAN) ✔ Creating an image for the project from the Dockerfile $(RESET)(This may take a few minutes)$(CYAN)..."
-	@docker-compose  build --quiet
+	@docker-compose  build --build-arg DEVELOPMENT=--dev --quiet
 	@echo "$(CYAN) ✔ Creating tables in the database from migrations ..."
 	@docker-compose run --rm web python manage.py migrate &> /dev/null
 	@echo "$(CYAN) ✔ Installing development dependencies ..."
